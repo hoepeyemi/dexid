@@ -48,7 +48,12 @@ const copyButtonStyles = {
 export default function CoinbaseButton() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
-  const { connect, connectors, isPending, error } = useConnect();
+  const { connect, connectors, isPending, error } = useConnect({
+    onSuccess(data) {
+      toast.success("Wallet connected successfully!");
+      router.push('/details'); // Redirect to details page after successful connection
+    },
+  });
   const { disconnect } = useDisconnect();
   const [copySuccess, setCopySuccess] = useState("");
 
@@ -75,8 +80,6 @@ export default function CoinbaseButton() {
       console.log('Using connector:', connector.name);
       
       await connect({ connector });
-      console.log('Connection successful');
-      toast.success("Wallet connected successfully!");
     } catch (error) {
       console.error('Connection failed:', error);
       toast.error(error.message || "Failed to connect wallet");
