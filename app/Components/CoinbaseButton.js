@@ -11,12 +11,13 @@ const buttonStyles = {
   border: "none",
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "center",
+  width: "100%",
   fontFamily: "Arial, sans-serif",
   fontWeight: "bold",
   fontSize: "16px",
   color: "#fff",
-  padding: "6px 12px",
+  padding: "8px 16px",
   borderRadius: "8px",
   cursor: "pointer",
   transition: "background 0.3s",
@@ -24,15 +25,19 @@ const buttonStyles = {
 
 const connectedContainerStyles = {
   display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  width: "100%",
   alignItems: "center",
-  fontFamily: "Arial, sans-serif",
   padding: "10px",
   backgroundColor: "#F0F4FF",
   borderRadius: "8px",
   color: "#333",
-  fontSize: "16px",
-  marginTop: "10px",
-  gap: "10px",
+  fontSize: "14px",
+  "@media (min-width: 640px)": {
+    flexDirection: "row",
+    fontSize: "16px",
+  },
 };
 
 const copyButtonStyles = {
@@ -51,11 +56,17 @@ export default function CoinbaseButton() {
   const { connect, connectors, isPending, error } = useConnect({
     onSuccess(data) {
       toast.success("Wallet connected successfully!");
-      router.push('/details'); // Redirect to details page after successful connection
+      router.push('/details');
     },
   });
   const { disconnect } = useDisconnect();
   const [copySuccess, setCopySuccess] = useState("");
+
+  useEffect(() => {
+    if (isConnected && address) {
+      router.push('/details');
+    }
+  }, [isConnected, address, router]);
 
   // Log available connectors
   useEffect(() => {

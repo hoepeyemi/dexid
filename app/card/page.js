@@ -181,20 +181,20 @@ const Page = () => {
 
   return (
     <ThirdwebProvider>
-      <div className="min-h-screen card-gradient ">
+      <div className="min-h-screen card-gradient px-4">
         <Toaster position="top-right" reverseOrder={false} />
         <LandingNavbar />
 
-        <div className="  flex items-center justify-center min-h-[70vh]   ">
+        <div className="flex items-center justify-center min-h-[70vh]">
           <Background />
           {loading ? (
             <Loader />
           ) : latestData ? (
-            <div>
+            <div className="w-full max-w-md">
               <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
                 {/* Front Side of the Card */}
                 <div className="items-center flex flex-col justify-center">
-                  <div className="bg-black  rounded-lg p-6 w-fit min-w-[300px] h-[350px] relative">
+                  <div className="bg-black rounded-lg p-4 w-full min-h-[350px] relative">
                     <div className="flex justify-center mb-4">
                       {latestData.Passport && (
                         <img
@@ -229,7 +229,7 @@ const Page = () => {
 
                 {/* Back Side of the Card */}
                 <div className="items-center flex flex-col justify-center">
-                  <div className="bg-black  rounded-lg p-6 w-fit max-w-[300px] h-[350px] relative space-y-8">
+                  <div className="bg-black rounded-lg p-4 w-full min-h-[350px] relative">
                     <div
                       className="flex justify-center mb-20  bg-white p-1 w-fit items-center mx-auto"
                       ref={reportRef}
@@ -254,15 +254,15 @@ const Page = () => {
                 </div>
               </ReactCardFlip>
 
-              <div className="flex justify-center items-center gap-6">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
                 <button
-                  className="bg-[#471d47] border border-gray-500 text-white w-full md:w-auto h-[48px] mt-4 px-3 rounded"
+                  className="w-full sm:w-auto bg-[#471d47] border border-gray-500 text-white h-[48px] px-6 rounded"
                   onClick={handleFlip}
                 >
                   Flip Card
                 </button>
                 <button
-                  className="bg-[#5e235e] border border-gray-500 text-white w-full md:w-auto h-[48px] mt-4 px-3 rounded"
+                  className="w-full sm:w-auto bg-[#5e235e] border border-gray-500 text-white h-[48px] px-6 rounded"
                   onClick={downloadPDF}
                 >
                   Save QRCode
@@ -271,20 +271,12 @@ const Page = () => {
 
               <div className="flex justify-center items-center mt-4">
                 <button
-                  className="bg-[#220c22] border border-gray-500 text-white w-full md:w-auto h-[48px] mt-4 px-8 mr-3 rounded"
+                  className="w-full sm:w-auto bg-[#220c22] border border-gray-500 text-white h-[48px] px-8 rounded"
                   onClick={openPayModal}
                 >
                   Pay
                 </button>
               </div>
-              <br />
-
-              <small>
-                <i className="text-white">
-                  The QR code will be used to confirm your identity in the
-                  institution's ICT Center
-                </i>
-              </small>
             </div>
           ) : (
             <p>No data available.</p>
