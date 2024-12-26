@@ -2396,7 +2396,7 @@
     effect "3.11.5"
     sqids "^0.3.0"
 
-"@uxuycom/web3-tg-sdk@^1.0.0":
+"@uxuycom/web3-tg-sdk@0.1.9":
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/@uxuycom/web3-tg-sdk/-/web3-tg-sdk-0.1.9.tgz#20312e330e5cc7a144e4a7f7d8022d2878601e05"
   integrity sha512-JY/Chv1v36dfbOnaIBIFQOHDBaNc/B+48erFgiGRfkSuMBA3RcaOAXhcCg2PHQNFu/MWbeWV0gdAeJeDfZdysw==
