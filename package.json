@@ -43,7 +43,7 @@
     "uploadthing": "^7.4.1",
     "viem": "^2.21.29",
     "wagmi": "^2.12.20",
-    "@uxuycom/web3-tg-sdk": "^1.0.0"
+    "@uxuycom/web3-tg-sdk": "0.1.9"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
